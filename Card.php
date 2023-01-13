@@ -2,36 +2,59 @@
 
 
     class Card {
-        private $id;
-        public int $id_card;
-        public bool $state;
-        public $displayBack;
-        public $nb_pairs;
+        private ?int $id_card;
+        private ?bool $state;
+        private ?string $displayBack;
+        private ?string $displayFront;
 
-        //public $list = ['dk.jpg', 'mario.jpg', 'link.jpg', 'ness.jpg', 'wolf.jpg', 'kirby.jpg', 'pikachu.jpg'];
 
-        public function __construct($id_card) {
-            $this->id_card = $id_card;
-            $this->state = FALSE;
-            $this->displayBack = "B";
-            $this->nb_pairs;
+        public function __construct() {
+            $this->id_card = NULL;
+            $this->state = NULL;
+            $this->displayBack = NULL;
+            $this->displayFront = NULL;
         }
 
 
+        public function setIdCard(?int $id_card): Card {
+            $this->id_card = $id_card;
 
+            return $this;
+        }
 
-        public function getIdcard() {
+        public function setState(?bool $state): Card {
+            $this->state = $state;
+
+            return $this;
+        }
+
+        public function setDisplayBack(?string $displayBack): Card {
+            $this->displayBack = $displayBack;
+
+            return $this;
+        }
+
+        public function setDisplayFront(?string $displayFront): Card {
+            $this->displayFront = $displayFront;
+
+            return $this;
+        }
+
+        public function getIdCard() {
             return $this->id_card;
         }
 
-        public function getDisplay() {
 
-            if($this->state) {
-                return $this->displayBack = "F";
-            }else {
-                return $this->displayBack;
-            }
-            
+        public function getState() {
+            return $this->state;
+        }
+
+        public function getDisplayBack() {
+            return $this->displayBack;
+        }
+
+        public function getDisplayFront() {
+            return $this->displayFront;
         }
 
     }

@@ -125,10 +125,11 @@ header {
 }
 
 .img {
-    width: 100px;
-    height: 200px;
-    margin-left: auto;
-    margin-right: auto;
+    width:15rem;
+    height: 25rem;
+    margin: 2rem;
+    border-radius: 10px;
+
 }
 
 /********************SCORE*******************/
