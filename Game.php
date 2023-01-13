@@ -5,7 +5,6 @@
         private $id;
         public $id_game;
         public $nb_pairs;
-        //public $list = ['img/dk.jpg', 'img/mario.jpg', 'img/link.jpg', 'img/ness.jpg', 'img/wolf.jpg', 'img/kirby.jpg', 'img/pikachu.jpg'];
         
         public function __construct() {
         }
@@ -23,10 +22,9 @@
                     ->setDisplayBack("img/backcard.jpg")
                     ->setState(FALSE);
                 $cards[] = $card;
-                $_SESSION['cards'] = $cards;
+                
                 
             }
-            var_dump($_SESSION['cards']);
             return $cards;
         }
 
@@ -41,16 +39,40 @@
             }
             return $nb_pairs;
         }
+        
+
+        public function cardFlipped() {
+            if(isset($_GET['id'])) {
+                $this->setState(TRUE);
+            }
+        }
 
         public function cardReturn() {
-            if(isset($_GET['id'])) {
+            // if(isset($_GET['id'])) {
+            //     //$_SESSION['cardflip'][] = $_GET['id'];
+            //     var_dump($_SESSION['cardflip']);
+            //     if(count($_SESSION['cardflip']) > 1) {
+            //         unset($_SESSION['cardflip']);
+            //     }
 
-                $_SESSION['cardflip'][] = $_GET['id'];
-                var_dump($_SESSION['cardflip']);
-                if(count($_SESSION['cardflip']) > 1) {
-                    unset($_SESSION['cardflip']);
+            //}
+        }
+
+        public function compare() {
+            foreach($_SESSION['cards'] as $key => $card) {
+                if($_GET['id'] == $card->getIdCard() ) {
+                    $card->setState(TRUE);
+                    $_SESSION['compare'][] = $card;
                 }
-
+        
+                if(count($_SESSION['compare']) == 2) {
+                    if($_SESSION[0]->getDisplayFront() == $_SESSION[0]->getDisplayFront()) {
+                        echo "bravo vou avez trouvé une paire";
+                    }
+                    
+                    unset($_SESSION['compare']);
+                }
+                
             }
         }
     }

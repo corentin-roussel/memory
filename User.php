@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     class User {
         private $connect;
         private $id;

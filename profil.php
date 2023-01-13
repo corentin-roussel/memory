@@ -1,5 +1,6 @@
 <?php
-    include 'User.php';
+    require_once 'User.php';
+    require_once '_include/session.php';
 
     if(!empty($_POST)) {
         extract($_POST);

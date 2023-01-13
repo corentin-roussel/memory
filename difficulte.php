@@ -2,6 +2,7 @@
     require_once 'User.php';
     require_once 'Card.php';
     require_once 'Game.php';
+    require_once '_include/session.php';
 
     
 

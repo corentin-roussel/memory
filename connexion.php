@@ -1,5 +1,6 @@
 <?php
     include 'User.php';
+    session_start();
 
     if(!empty($_POST)) {
         extract($_POST);
