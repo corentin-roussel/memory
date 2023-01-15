@@ -16,23 +16,6 @@
         $a = 9;
     }
 
-    $nb_pairs = 3;
-
-    $cards = array();
-    for($i = 0;$i < $nb_pairs * 2; $i++) {
-        $card = new Card();
-        $card
-            ->setIdCard($i)
-            ->setDisplayFront("img". $i % $nb_pairs + 1 .".jpg")
-            ->setDisplayBack("img/backcard.jpg")
-            ->setState(FALSE);
-            $cards[] = $card;  
-    }
-    
-    var_dump($cards);
-    
-    // shuffle($cards);
-    // $_SESSION['list'] = $cards;
   
     
 ?>
